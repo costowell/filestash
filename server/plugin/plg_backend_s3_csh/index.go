@@ -9,7 +9,7 @@ import (
 )
 
 type S3CSHBackend struct {
-	s3 S3Backend
+	s3 IBackend
 }
 
 func init() {
@@ -23,12 +23,17 @@ func (this S3CSHBackend) Cat(path string) (io.ReadCloser, error) {
 
 // Init implements [common.IBackend].
 func (this S3CSHBackend) Init(params map[string]string, app *App) (IBackend, error) {
-	return this.s3.Init(params, app)
+	backend, err := S3Backend{}.Init(params, app)
+	if err != nil {
+		return nil, err
+	}
+	return S3CSHBackend{s3: backend}, nil
 }
 
 // LoginForm implements [common.IBackend].
+// Homie gets called before init
 func (this S3CSHBackend) LoginForm() Form {
-	form := this.s3.LoginForm()
+	form := S3Backend{}.LoginForm()
 	form.Elmnts[0].Value = "s3csh"
 	return form
 }

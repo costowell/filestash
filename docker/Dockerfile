@@ -34,6 +34,7 @@ RUN apt-get update > /dev/null && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
-USER filestash
+USER root
+RUN chgrp -R 0 /app && chmod -R g=u /app
 CMD ["/app/filestash"]
 EXPOSE 8334

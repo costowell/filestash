@@ -35,6 +35,7 @@ func (this S3CSHBackend) LoginForm() Form {
 
 // Ls implements [common.IBackend].
 func (this S3CSHBackend) Ls(path string) ([]os.FileInfo, error) {
+	Log.Error("plg_backend_s3_csh::ls path=%s", path)
 	if path == "/" || path == "" {
 		return []os.FileInfo{
 			File{

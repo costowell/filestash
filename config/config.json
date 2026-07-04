@@ -1,42 +1,41 @@
 {
-    "general": {
+  "general": {},
+  "features": {},
+  "log": {},
+  "email": {},
+  "oauth": {},
+  "connections": [
+    {
+      "type": "webdav",
+      "label": "WebDav"
     },
-    "features": {
+    {
+      "type": "ftp",
+      "label": "FTP"
     },
-    "log": {
+    {
+      "type": "sftp",
+      "label": "SFTP"
     },
-    "email": {
+    {
+      "type": "git",
+      "label": "GIT"
     },
-    "oauth": {
+    {
+      "type": "s3",
+      "label": "S3"
     },
-    "connections": [
-        {
-            "type": "webdav",
-            "label": "WebDav"
-        },
-        {
-            "type": "ftp",
-            "label": "FTP"
-        },
-        {
-            "type": "sftp",
-            "label": "SFTP"
-        },
-        {
-            "type": "git",
-            "label": "GIT"
-        },
-        {
-            "type": "s3",
-            "label": "S3"
-        },
-        {
-            "type": "dropbox",
-            "label": "Dropbox"
-        },
-        {
-            "type": "gdrive",
-            "label": "Drive"
-        }
-    ]
+    {
+      "type": "s3csh",
+      "label": "S3 CSH"
+    },
+    {
+      "type": "dropbox",
+      "label": "Dropbox"
+    },
+    {
+      "type": "gdrive",
+      "label": "Drive"
+    }
+  ]
 }

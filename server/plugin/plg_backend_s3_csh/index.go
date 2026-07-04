@@ -13,7 +13,7 @@ type S3CSHBackend struct {
 }
 
 func init() {
-	Backend.Register("s3_csh", S3CSHBackend{})
+	Backend.Register("s3csh", S3CSHBackend{})
 }
 
 // Cat implements [common.IBackend].
@@ -28,7 +28,9 @@ func (this S3CSHBackend) Init(params map[string]string, app *App) (IBackend, err
 
 // LoginForm implements [common.IBackend].
 func (this S3CSHBackend) LoginForm() Form {
-	return this.s3.LoginForm()
+	form := this.s3.LoginForm()
+	form.Elmnts[0].Value = "s3csh"
+	return form
 }
 
 // Ls implements [common.IBackend].
@@ -40,7 +42,7 @@ func (this S3CSHBackend) Ls(path string) ([]os.FileInfo, error) {
 				FType: "directory",
 				FTime: 0,
 			},
-		}
+		}, nil
 	}
 	return this.s3.Ls(path)
 }

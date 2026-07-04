@@ -16,7 +16,8 @@ RUN apt-get update > /dev/null && \
     make init && \
     make build && \
     mkdir -p ./dist/data/state/config/ && \
-    cp config/config.json ./dist/data/state/config/config.json
+    cp config/config.json ./dist/data/state/config/config.json && \
+    git log -1 --pretty=format:'%h - %an, %ar : %s'
 
 # STEP3: BUILD PROD IMAGE
 FROM debian:stable-slim
